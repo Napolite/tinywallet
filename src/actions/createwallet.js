@@ -16,6 +16,7 @@ const createEthWallet = () => {
 
 const createBtcWallet = () => {
   const bip32 = BIP32Factory(ecc);
+
   const network = bitcoin.networks.testnet;
 
   const path = `m/44'/1'/0'/0`;
@@ -36,5 +37,5 @@ const createBtcWallet = () => {
   return { address: btcAddress, privateKey: node.toWIF(), mnemonic: mnemonic };
   //   console.log(account);
 };
-// console.log(createBtcWallet());
-// export { createEthWallet, createBtcWallet };
+console.log(createBtcWallet());
+export { createEthWallet, createBtcWallet };

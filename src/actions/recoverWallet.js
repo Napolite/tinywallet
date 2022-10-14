@@ -1,4 +1,7 @@
 const Web3 = require("web3");
+const { ECPairFactory } = require("ecpair");
+const ecc = require("tiny-secp256k1");
+const bitcoin = require("bitcoinjs-lib");
 
 const recoverEthKey = (key) => {
   const web3 = new Web3(
@@ -10,4 +13,16 @@ const recoverEthKey = (key) => {
   return accounts;
 };
 
-export { recoverEthKey };
+const genBitcoinAddress = (wifKey) => {
+  const EcPair = ECPairFactory(ecc);
+
+  const keyPair = EcPair.fromWIF(wifKey, bitcoin.networks.testnet);
+
+  const address = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
+
+  return address.address;
+};
+
+console.log(genBitcoinAddress());
+
+// export { recoverEthKey, genBitcoinAddress };
