@@ -1,0 +1,155 @@
+.welcome-root {
+  height: 100vh;
+  background: rgba(1, 11, 72, 255);
+  color: white;
+}
+
+.welcome-main {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.login-grid {
+  margin-top: 70px;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 70vh;
+}
+
+.welcome-header {
+  font-size: 40px;
+  font-weight: 300;
+  font-family: suez;
+}
+.login-input {
+  width: 500px;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #4597bc;
+  font-size: 30px;
+  color: white;
+  font-weight: bolder;
+  outline: none;
+}
+.login-button {
+  font-family: suez;
+  font-weight: 200;
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(to right, #4597bc, #4d77b8);
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 3px;
+}
+
+.login-button:nth-child(4) {
+  align-self: center;
+  transform: translate(-60%, 0);
+}
+
+.walletrest {
+  width: 420px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-div-initial {
+  height: 350px;
+  width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  /* background: white; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 5px solid rgba(178, 255, 255, 255);
+  /* border-bottom: 1px solid rgba(1, 11, 72, 255);
+  border-top: 1px solid rgba(1, 11, 72, 255); */
+  z-index: 5;
+  /* transform: rotate(90deg); */
+}
+
+.image-grid {
+  height: 280px;
+  width: 280px;
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  /* background: white; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 5px solid rgba(178, 255, 255, 255);
+  /* border-bottom: 1px solid rgba(1, 11, 72, 255);
+  border-top: 1px solid rgba(1, 11, 72, 255); */
+  z-index: 5;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .overlay1,
+  .overlay2 {
+    animation: App-logo-spin infinite 10s linear;
+  }
+  .overlay3,
+  .overlay4 {
+    animation: anti-app-logo-spin infinite 10s linear;
+  }
+}
+
+.image {
+  height: 93%;
+  width: 93%;
+  border-radius: 50%;
+  z-index: 20;
+  animation: none;
+}
+.overlay1 {
+  position: absolute;
+  width: 100px;
+  height: 320px;
+  background-color: rgba(1, 11, 72, 255);
+  /* background-color: pink; */
+}
+.overlay2 {
+  position: absolute;
+  width: 320px;
+  height: 90px;
+  background-color: rgba(1, 11, 72, 255);
+  /* background-color: green; */
+}
+.overlay3 {
+  position: absolute;
+  width: 120px;
+  height: 370px;
+  background-color: rgba(1, 11, 72, 255);
+}
+.overlay4 {
+  position: absolute;
+  width: 370px;
+  height: 120px;
+  background-color: rgba(1, 11, 72, 255);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes anti-app-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}

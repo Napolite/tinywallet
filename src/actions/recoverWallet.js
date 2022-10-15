@@ -23,6 +23,6 @@ const genBitcoinAddress = (wifKey) => {
   return address.address;
 };
 
-console.log(genBitcoinAddress());
+// console.log(genBitcoinAddress());
 
-// export { recoverEthKey, genBitcoinAddress };
+export { recoverEthKey, genBitcoinAddress };
