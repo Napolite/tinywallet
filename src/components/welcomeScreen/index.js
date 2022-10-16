@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import "./welcomeStyle.css";
+import $ from "jquery";
 
 import image from "../../assets/images/SL_0212121_40670_78.jpg";
 
 const Welcome = () => {
+  const handleGetStartedClick = () => {
+    $(function () {
+      $(".image-div-initial").css({ transition: "2s ease", left: "20%" });
+      $(".get-started-button").css({
+        transition: "opacity 1s fade",
+        opacity: "0",
+      });
+    });
+  };
   return (
     <div className="welcome-root">
       <div className="welcome-main">
@@ -15,6 +25,9 @@ const Welcome = () => {
           </div>
           <div class="overlay3"></div>
           <div class="overlay4"></div>
+        </div>
+        <div className="get-started-button">
+          <button onClick={handleGetStartedClick}> Get Started</button>
         </div>
       </div>
     </div>
