@@ -12,6 +12,10 @@ const Welcome = () => {
         transition: "opacity 1s fade",
         opacity: "0",
       });
+      $(".left-grid").css({
+        animation: "fadeIn 1.5s forwards",
+        animationDelay: "1s",
+      });
     });
   };
   return (
@@ -25,6 +29,10 @@ const Welcome = () => {
           </div>
           <div class="overlay3"></div>
           <div class="overlay4"></div>
+        </div>
+        <div className="left-grid">
+          <button>Login</button>
+          <button>Create Wallet</button>
         </div>
         <div className="get-started-button">
           <button onClick={handleGetStartedClick}> Get Started</button>
