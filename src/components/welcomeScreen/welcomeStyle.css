@@ -6,6 +6,7 @@
 
 .welcome-main {
   display: flex;
+  /* perspective: 100px; */
 }
 
 .login-grid {

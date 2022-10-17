@@ -5,6 +5,7 @@ import $, { event } from "jquery";
 import image from "../../assets/images/SL_0212121_40670_78.jpg";
 
 const Welcome = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
   const handleGetStartedClick = () => {
     $(function () {
       $(".image-div-initial").css({ transition: "2s ease", left: "20%" });
@@ -42,6 +43,34 @@ const Welcome = () => {
       zIndex: 0,
     });
   };
+
+  const onLoginClick = () => {
+    $(".login-grid").css({
+      animation: "fadeOut .7s forwards",
+      zIndex: 0,
+    });
+    $(".image-div-initial").css({ transition: "2s ease .7s", left: "45%" });
+
+    setTimeout(() => {
+      if (loggedIn === false) {
+        $(".image-div-initial").css({ transition: "2s ease", left: "20%" });
+        $(".login-grid").css({
+          animation: "fadeIn .8s forwards .8s",
+          zIndex: 15,
+        });
+      } else {
+        $(".image").css({ animation: "fadeOut .5s forwards" });
+        $(".image-div-initial").css({
+          transition: "2s",
+          opacity: 0,
+          //   display: "none",
+        });
+        $(".overlay1,.overlay2, .overlay3, .overlay4").css({
+          animation: "none",
+        });
+      }
+    }, 3000);
+  };
   return (
     <div className="welcome-root">
       <div className="welcome-main">
@@ -61,13 +90,13 @@ const Welcome = () => {
         <div className="get-started-button">
           <button onClick={handleGetStartedClick}> Get Started</button>
         </div>
-        <Login onBack={fromLoginBack} />
+        <Login onBack={fromLoginBack} onLogin={onLoginClick} />
       </div>
     </div>
   );
 };
 
-const Login = ({ onBack }) => {
+const Login = ({ onBack, onLogin }) => {
   const [password, setPassword] = useState("");
   const onEditPassword = (e) => {
     setPassword(e.target.value);
@@ -87,7 +116,9 @@ const Login = ({ onBack }) => {
         <button className="login-button" onClick={onBack}>
           Back
         </button>
-        <button className="login-button">Login</button>
+        <button className="login-button" onClick={onLogin}>
+          Login
+        </button>
       </div>
     </div>
   );
