@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./welcomeStyle.css";
-import $ from "jquery";
+import $, { event } from "jquery";
 
 import image from "../../assets/images/SL_0212121_40670_78.jpg";
 
@@ -13,9 +13,33 @@ const Welcome = () => {
         opacity: "0",
       });
       $(".left-grid").css({
-        animation: "fadeIn 1.5s forwards",
-        animationDelay: "1s",
+        animation: "fadeIn 1.5s forwards 1s",
+        // animationDelay: "1s",
       });
+    });
+  };
+
+  const handleShowLogInPage = () => {
+    $(".left-grid").css({
+      animation: "fadeOut .7s forwards",
+      zIndex: 0,
+    });
+
+    $(".login-grid").css({
+      animation: "fadeIn .8s forwards .8s",
+      zIndex: 15,
+    });
+  };
+
+  const fromLoginBack = () => {
+    $(".left-grid").css({
+      animation: "fadeIn .8s forwards .8s",
+      zIndex: 15,
+    });
+
+    $(".login-grid").css({
+      animation: "fadeOut .7s forwards",
+      zIndex: 0,
     });
   };
   return (
@@ -24,32 +48,33 @@ const Welcome = () => {
         <div className="image-div-initial">
           <div className="image-grid">
             <img src={image} alt="bitcoin" className="image" />
-            <div class="overlay1"></div>
-            <div class="overlay2"></div>
+            <div className="overlay1"></div>
+            <div className="overlay2"></div>
           </div>
-          <div class="overlay3"></div>
-          <div class="overlay4"></div>
+          <div className="overlay3"></div>
+          <div className="overlay4"></div>
         </div>
         <div className="left-grid">
-          <button>Login</button>
+          <button onClick={handleShowLogInPage}>Login</button>
           <button>Create Wallet</button>
         </div>
         <div className="get-started-button">
           <button onClick={handleGetStartedClick}> Get Started</button>
         </div>
+        <Login onBack={fromLoginBack} />
       </div>
     </div>
   );
 };
 
-const Login = () => {
+const Login = ({ onBack }) => {
   const [password, setPassword] = useState("");
   const onEditPassword = (e) => {
-    setPassword({ password: e.target.value });
+    setPassword(e.target.value);
+    console.log(e.target.value);
   };
   return (
     <div className="login-grid">
-      <div className="welcome-header">Welcome Hodler</div>
       <label>Password</label>
       <input
         type="password"
@@ -57,16 +82,12 @@ const Login = () => {
         value={password}
         onChange={onEditPassword}
       />
-      <button className="login-button">Login</button>
-      <div>
-        <div>
-          If you have forgotten your password, you can reset it by restoring
-          your wallet
-        </div>
-      </div>
+
       <div className="walletrest">
-        <button className="login-button">Create Wallet</button>
-        <button className="login-button">Restore Wallet</button>
+        <button className="login-button" onClick={onBack}>
+          Back
+        </button>
+        <button className="login-button">Login</button>
       </div>
     </div>
   );

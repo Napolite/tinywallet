@@ -9,48 +9,55 @@
 }
 
 .login-grid {
+  width: 400px;
+  opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 70vh;
+  align-items: center;
+  min-height: 30vh;
+  position: absolute;
+  left: 40%;
+  top: 33%;
+  transform: translateY(-30%);
+  z-index: 0;
 }
 
-.welcome-header {
-  font-size: 40px;
-  font-weight: 300;
-  font-family: suez;
+.login-grid label {
+  align-self: flex-start;
 }
+
 .login-input {
-  width: 500px;
+  width: 100%;
   background: none;
   border: 0;
   border-bottom: 1px solid #4597bc;
-  font-size: 30px;
+  font-size: 25px;
   color: white;
   font-weight: bolder;
   outline: none;
 }
 .login-button {
-  font-family: suez;
-  font-weight: 200;
-  width: 200px;
   height: 50px;
-  background: linear-gradient(to right, #4597bc, #4d77b8);
-  color: white;
-  font-size: 20px;
+  width: 150px;
   border: none;
-  border-radius: 3px;
+  border-radius: 10px;
+  background: rgba(1, 11, 72, 255);
+  box-shadow: 0px 0px 10px rgba(178, 255, 255, 255);
+  color: rgba(178, 255, 255, 255);
 }
 
-.login-button:nth-child(4) {
-  align-self: center;
-  transform: translate(-60%, 0);
+.login-button:hover {
+  background-color: rgba(178, 255, 255, 0.8);
+  color: black;
 }
 
 .walletrest {
-  width: 420px;
+  width: 90%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  align-content: center;
 }
 
 .image-div-initial {
@@ -127,12 +134,12 @@
 .overlay3 {
   position: absolute;
   width: 120px;
-  height: 450px;
+  height: 440px;
   background-color: rgba(1, 11, 72, 255);
 }
 .overlay4 {
   position: absolute;
-  width: 450px;
+  width: 440px;
   height: 120px;
   background-color: rgba(1, 11, 72, 255);
 }
@@ -141,7 +148,7 @@
   position: absolute;
   top: 80%;
   left: 40%;
-  transform: translate(0, 50%);
+  /* transform: translate(0, 50%); */
 }
 .get-started-button button {
   height: 50px;
@@ -165,6 +172,7 @@
   position: absolute;
   left: 40%;
   top: 40%;
+  z-index: 9;
 }
 
 .left-grid button {
@@ -205,5 +213,14 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
