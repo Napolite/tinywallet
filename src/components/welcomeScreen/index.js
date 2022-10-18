@@ -5,7 +5,7 @@ import $, { event } from "jquery";
 import image from "../../assets/images/SL_0212121_40670_78.jpg";
 
 const Welcome = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const handleGetStartedClick = () => {
     $(function () {
       $(".image-div-initial").css({ transition: "2s ease", left: "20%" });
@@ -53,21 +53,54 @@ const Welcome = () => {
 
     setTimeout(() => {
       if (loggedIn === false) {
-        $(".image-div-initial").css({ transition: "2s ease", left: "20%" });
-        $(".login-grid").css({
-          animation: "fadeIn .8s forwards .8s",
-          zIndex: 15,
-        });
-      } else {
-        $(".image").css({ animation: "fadeOut .5s forwards" });
         $(".image-div-initial").css({
-          transition: "2s",
-          opacity: 0,
-          //   display: "none",
+          transition: "none",
+          boxShadow: "0px 0px 30px #ff000d",
+          borderColor: "#ff000d",
+        });
+        $(".image-grid").css({
+          boxShadow: "0px 0px 20px #ff000d",
+          borderColor: "#ff000d",
+        });
+        setTimeout(() => {
+          $(".image-grid").css({
+            boxShadow: "0px 0px 20px rgba(178, 255, 255, 255)",
+            borderColor: "rgba(178, 255, 255, 255)",
+            transition: "2s ease",
+          });
+          $(".image-div-initial").css({
+            transition: "2s ease",
+            left: "20%",
+            boxShadow: "0px 0px 30px rgba(178, 255, 255, 255)",
+            borderColor: "rgba(178, 255, 255, 255)",
+          });
+          $(".login-grid").css({
+            animation: "fadeIn .8s forwards .8s",
+            zIndex: 15,
+          });
+        }, 700);
+      } else {
+        $(".image-div-initial").css({
+          transition: "none",
+          boxShadow: "0px 0px 30px #32cd32",
+          borderColor: "#32cd32",
+        });
+        $(".image-grid").css({
+          transition: "none",
+          boxShadow: "0px 0px 20px #32cd32",
+          borderColor: "#32cd32",
         });
         $(".overlay1,.overlay2, .overlay3, .overlay4").css({
           animation: "none",
         });
+        setTimeout(() => {
+          $(".image").css({ animation: "fadeOut .5s forwards" });
+          $(".image-div-initial").css({
+            transition: "2s",
+            opacity: 0,
+            //   display: "none",
+          });
+        }, 700);
       }
     }, 3000);
   };
