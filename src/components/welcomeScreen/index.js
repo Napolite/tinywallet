@@ -44,7 +44,8 @@ const Welcome = () => {
     });
   };
 
-  const onLoginClick = () => {
+  const onLoginClick = (password) => {
+    console.log(password);
     $(".login-grid").css({
       animation: "fadeOut .7s forwards",
       zIndex: 0,
@@ -52,7 +53,7 @@ const Welcome = () => {
     $(".image-div-initial").css({ transition: "2s ease .7s", left: "45%" });
 
     setTimeout(() => {
-      if (loggedIn === false) {
+      if (password !== "hello") {
         $(".image-div-initial").css({
           transition: "none",
           boxShadow: "0px 0px 30px #ff000d",
@@ -90,9 +91,9 @@ const Welcome = () => {
           boxShadow: "0px 0px 20px #32cd32",
           borderColor: "#32cd32",
         });
-        $(".overlay1,.overlay2, .overlay3, .overlay4").css({
-          animation: "none",
-        });
+        // $(".overlay1,.overlay2, .overlay3, .overlay4").css({
+        //   animation: "2s fade",
+        // });
         setTimeout(() => {
           $(".image").css({ animation: "fadeOut .5s forwards" });
           $(".image-div-initial").css({
@@ -149,7 +150,7 @@ const Login = ({ onBack, onLogin }) => {
         <button className="login-button" onClick={onBack}>
           Back
         </button>
-        <button className="login-button" onClick={onLogin}>
+        <button className="login-button" onClick={() => onLogin(password)}>
           Login
         </button>
       </div>
