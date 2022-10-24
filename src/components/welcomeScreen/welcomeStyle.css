@@ -66,7 +66,7 @@
   width: 350px;
   position: absolute;
   top: 43%;
-  left: 45%;
+  left: 47.5%;
   transform: translate(-50%, -50%);
   /* background: white; */
   display: flex;
@@ -148,7 +148,7 @@
 .get-started-button {
   position: absolute;
   top: 80%;
-  left: 40%;
+  left: 41.8%;
   /* transform: translate(0, 50%); */
 }
 .get-started-button button {

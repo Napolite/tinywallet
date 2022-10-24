@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./welcomeStyle.css";
-import $, { event } from "jquery";
+import $ from "jquery";
+import { redirect, useNavigate } from "react-router-dom";
 
 import image from "../../assets/images/SL_0212121_40670_78.jpg";
 
 const Welcome = () => {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const navigate = useNavigate();
   const handleGetStartedClick = () => {
     $(function () {
       $(".image-div-initial").css({ transition: "2s ease", left: "20%" });
@@ -50,7 +51,7 @@ const Welcome = () => {
       animation: "fadeOut .7s forwards",
       zIndex: 0,
     });
-    $(".image-div-initial").css({ transition: "2s ease .7s", left: "45%" });
+    $(".image-div-initial").css({ transition: "2s ease .7s", left: "47.5%" });
 
     setTimeout(() => {
       if (password !== "hello") {
@@ -60,6 +61,7 @@ const Welcome = () => {
           borderColor: "#ff000d",
         });
         $(".image-grid").css({
+          transition: "none",
           boxShadow: "0px 0px 20px #ff000d",
           borderColor: "#ff000d",
         });
@@ -101,7 +103,12 @@ const Welcome = () => {
             opacity: 0,
             //   display: "none",
           });
+          // return redirect("/main");
+          setTimeout(() => {
+            navigate("/main");
+          }, 700);
         }, 700);
+        // setTimeout(()=>{console.log('hello world')})
       }
     }, 3000);
   };
